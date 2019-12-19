@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "POoutcome";
+    Layout = "~/Views/Shared/nlay.cshtml";
+}
+<div class="content">
+<div class="navigp">
+    <div>
+        <h1 class="boxed" style="width:700px;font-size:30px;color:orangered;padding-top:10px;padding-bottom:10px;padding-left:45px">PRODUCT BASED LEARNING WEB PORTAL</h1>
+    </div>
+
+</div>
+
+<div class="lay" id="container">
+    <img src="~/pblout.PNG" style="padding-top:20px;padding-left:170px;width:1000px;height:650px;position:relative" />
+
+
+</div>
+
+
+
+<div class="lay">
+    <button class="ui orange button" id="Po_btn" style="position:absolute;top:70%;margin-left:210px;width:100px;height:70px;padding-left:13px">Programme<br /> Outcome</button>
+    <button class="ui orange button" id="Skill_btn" style="position:absolute;top:45%;margin-left:575px;width:100px">Skill Loop<br />Tasks</button>
+    <button class="ui orange button" id="Skill_loop_btn" style="position:absolute;top:45%;margin-left:410px;width:100px">Skill Loop<br /> Outcome</button>
+</div></div>
+<div class="preload">
+    <img src="http://i.imgur.com/KUJoe.gif">
+</div>
+<style>
+    .preload {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 40%;
+        left: 47%;
+    }
+
+    .content {
+        display: none;
+    }
+</style>
+<script>
+     $('#Skill_btn').click(function () { document.location = '@Url.Action("sk_task","Home")'; });
+     $('#Skill_loop_btn').click(function () { document.location = '@Url.Action("sk_folder","Home")'; });
+    $('#Po_btn').click(function () { document.location = '@Url.Action("po_folder","Home")'; });
+        $(function () {
+        $(".preload").fadeOut(1000, function () {
+            $(".content").fadeIn(1000);
+        });
+    });
+</script>

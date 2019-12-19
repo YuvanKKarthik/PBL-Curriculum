@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "reports";
+    Layout = "~/Views/Shared/pblay.cshtml";
+}
+<head>
+
+</head>
+<body>
+    <div class="content">
+        <div class="lay" style="padding-top:120px;padding-left:100px">
+            <div style="padding-left:200px">
+                <h1 class="boxed" style="color:orangered;width:600px">
+                    <center>PRODUCT BASED LEARNING</center>
+                </h1>
+            </div>
+            <div style="padding-top:95px;padding-left:50px">
+                <div class="boxed" style="padding-top:20px;padding-right:30px;padding-bottom:200px;width:600px">
+                    <h2>COURSES</h2>
+                    <p>
+                        @{
+                            String[] pofiles = Directory.GetFiles(Server.MapPath("~/Data/" + Session["Dept"]) + "/REPORTS");
+                            foreach (var fullpath in pofiles)
+                            {
+                                var file = Path.GetFileName(fullpath);
+
+                                <a href="~/Data/@Session["Dept"]/REPORTS/@file"> @file</a>
+                                <br />
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preload">
+        <img src="http://i.imgur.com/KUJoe.gif">
+    </div>
+</body>
+<style>
+    .preload {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 40%;
+        left: 47%;
+    }
+
+    .content {
+        display: none;
+    }
+</style>
+<script>
+ $(function () {
+        $(".preload").fadeOut(1000, function () {
+            $(".content").fadeIn(1000);
+        });
+    });
+</script>

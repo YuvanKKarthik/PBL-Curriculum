@@ -1,0 +1,54 @@
+﻿
+
+@{
+    ViewBag.Title = "UserHome";
+    Layout = "~/Views/Shared/nlay.cshtml";
+}
+    <body>
+        <div class="content">
+            <div class="navig">
+                <div>
+                    <h1 class="boxed" style="width:700px;font-size:30px;color:orangered;padding-top:10px;padding-bottom:10px;padding-left:45px">PRODUCT BASED LEARNING WEB PORTAL</h1>
+                </div>
+
+            </div>
+            <div class="lay">
+                <table border="0" cellspacing="25" cellpadding="3" style="padding-left:200px;padding-top:100px;padding-right:300px">
+                    <tr>
+                        <td><button class="ui violet button" id="ps_o" style="height:60px;width:200px">OUTCOMES</button></td>
+                        <td><button class="ui violet button" id="ps_c" style="width:200px;height:60px">COURSES</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="ui violet button" id="ps_d" style="width:200px;height:60px">DATA</button></td>
+                        <td><button class="ui violet button" id="ps_r" style="width:200px;height:60px">REPORTS</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div><div class="preload">
+            <img src="http://i.imgur.com/KUJoe.gif">
+        </div>
+        <style>
+            .preload {
+                width: 100px;
+                height: 100px;
+                position: fixed;
+                top: 40%;
+                left: 47%;
+            }
+
+            .content {
+                display: none;
+            }
+        </style>
+    </body>
+<script>
+     $('#ps_o').click(function () { document.location = '@Url.Action("ps_out","Home")'; });
+     $('#ps_c').click(function () { document.location = '@Url.Action("ps_course","Home")'; });
+    $('#ps_d').click(function () { document.location = '@Url.Action("ps_data","Home")'; });
+    $('#ps_r').click(function () { document.location = '@Url.Action("ps_report","Home")'; });
+     $(function () {
+        $(".preload").fadeOut(1000, function () {
+            $(".content").fadeIn(1000);
+        });
+    });
+</script>

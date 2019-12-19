@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+
+</head>
+<body class="test">
+    <div>
+
+        <div class="container">
+            <img src="~/logo.jpg" />
+            <div class="topleft"></div>
+        </div>
+        <table style="float:left">
+            <tr>
+                <td>
+                    <div id="user card" style=" padding-left: 60px;padding-top:260px;">
+                        <div class="ui card" style="max-width:280px; max-height:800px;">
+                            <div class="image">
+                                <img src="/bb4.jpg" style="border-radius:145px; max-width:240px; max-height:240px; margin-left:20px;">
+                            </div>
+                            <div class="content">
+                                <a class="header">User ID:@Session["User ID"] </a>
+                                <div class="meta">
+                                </div>
+                                <div class="description" style="padding-top:10px;">
+                                    Department of @Session["Dept"]
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <button class="negative ui button" id="logout">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .boxed {
+        padding-left: 12px;
+        border: .5px solid green;
+        border-color: black;
+        background: rgba(255, 255,255,0.7);
+    }
+
+    li {
+        float: left;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            li a:hover {
+                background-color: #111;
+            }
+
+
+    .lay {
+        padding-left: 60px;
+        padding-top: 50px;
+        margin-left: 300px;
+    }
+
+    .topleft {
+        position: inherit;
+        padding-top: 50%;
+        padding-left: 50%;
+        font-size: 70px;
+    }
+
+    .test {
+
+         background-image: url('/bb3.jpg');
+            background-position:top;
+            background-repeat: no-repeat;
+            height: 1050px;
+            background-size:cover;
+    }
+
+    .container {
+        position: absolute;
+        padding-top: 30px;
+        padding-left: 30px
+    }
+    
+</style>
+
+<script type="text/javascript">
+    $('#logout').click(function () {
+        document.location = '@Url.Action("Logout","Home")';
+    });
+
+</script>
